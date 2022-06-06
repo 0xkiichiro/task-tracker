@@ -14,13 +14,13 @@
 }
 .card-container .card {
   border: 1px solid white;
-  overflow: none;
   width: 14%;
 }
 .card-container .card h3 {
   color: lightcoral;
 }
 .card-container .card ul {
+  overflow: auto;
   list-style: none;
 }
 

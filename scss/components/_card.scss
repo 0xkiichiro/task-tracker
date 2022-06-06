@@ -7,12 +7,12 @@
   text-align: center;
   .card {
     border: 1px solid white;
-    overflow: none;
     width: 14%;
     h3 {
       color: lightcoral;
     }
     ul {
+      overflow: auto;
       list-style: none;
     }
   }
