@@ -25,6 +25,9 @@ header {
   align-items: center;
   background-color: lightcoral;
 }
+header span {
+  color: #282a36;
+}
 
 .input-box-container {
   height: 40vh;

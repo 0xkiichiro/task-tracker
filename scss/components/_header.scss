@@ -5,4 +5,8 @@ header {
   justify-content: space-around;
   align-items: center;
   background-color: lightcoral;
+
+  span {
+    color: $bgColor;
+  }
 }
