@@ -17,6 +17,12 @@
   overflow: none;
   width: 14%;
 }
+.card-container .card h3 {
+  color: lightcoral;
+}
+.card-container .card ul {
+  list-style: none;
+}
 
 header {
   height: 10vh;

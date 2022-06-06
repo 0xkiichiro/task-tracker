@@ -16,8 +16,11 @@ document.querySelector(".container").addEventListener("click", (event) => {
     console.log("oi");
     if (day.value === "Pick a day") {
       alert("Pick a day first!");
-      //! sort the days
-    } else if (day.value === "monday") {
+    } else if (!input.value) {
+      alert("Dont play with me, come back when you have a task at hand!");
+    }
+    //! sort the days
+    else if (day.value === "monday") {
       monday.lastElementChild.innerHTML += `<li> ${input.value} </li>`;
     } else if (day.value === "tuesday") {
       tuesday.lastElementChild.innerHTML += `<li> ${input.value} </li>`;
@@ -32,8 +35,8 @@ document.querySelector(".container").addEventListener("click", (event) => {
     } else if (day.value === "sunday") {
       sunday.lastElementChild.innerHTML += `<li> ${input.value} </li>`;
     }
+    input.value = "";
   }
-  input.value = "";
 });
 
 //! onload
