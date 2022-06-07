@@ -16,12 +16,19 @@
   border: 1px solid white;
   width: 14%;
 }
-.card-container .card h3 {
-  color: lightcoral;
-}
 .card-container .card ul {
   overflow: auto;
   list-style: none;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+.card-container .card ul input {
+  margin-right: 5px;
+  background-color: lightcoral;
+}
+.card-container h3 {
+  color: lightcoral;
 }
 
 header {
@@ -71,6 +78,47 @@ header span {
   width: 68px;
   border-bottom-right-radius: 0.9rem;
   border-top-right-radius: 0.9rem;
+}
+
+.footer {
+  height: 10vh;
+  background-color: #252525;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.footer .action-buttons {
+  height: 100%;
+  width: 40%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.footer .action-buttons .button {
+  padding: 20px;
+  outline: none;
+  border: none;
+  border-radius: 2rem;
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+}
+.footer .action-buttons .fail {
+  background-color: #b33a3a;
+}
+.footer .action-buttons .pass {
+  background-color: #4bb543;
+}
+.footer .point-counter {
+  width: 30%;
+  display: flex;
+  justify-content: start;
+}
+.footer .point-counter h3 {
+  color: white;
 }
 
 body {

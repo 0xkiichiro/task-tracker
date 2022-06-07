@@ -1,0 +1,44 @@
+.footer {
+  height: 10vh;
+  background-color: $footerColor;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .action-buttons {
+    height: 100%;
+    width: 40%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    .button {
+      padding: 20px;
+      outline: none;
+      border: none;
+      border-radius: 2rem;
+      color: white;
+      font-size: 1rem;
+      font-weight: 600;
+    }
+    .fail {
+      background-color: $warningRed;
+    }
+    .pass {
+      background-color: $successGreen;
+    }
+  }
+
+  .point-counter {
+    width: 30%;
+    display: flex;
+    justify-content: start;
+    h3 {
+      color: white;
+    }
+  }
+}

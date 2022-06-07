@@ -53,11 +53,15 @@ const check = function () {
 };
 
 const printTask = function (dayName) {
-  dayName.lastElementChild.innerHTML += `<li> ${input.value} </li>`;
+  dayName.lastElementChild.innerHTML += `<li> ${input.value} <input type="checkbox" name="delete" id="delete" /></li>`;
 };
 
 //! onload
 
 window.onload = function () {
   input.focus();
+  //* comment out after WIP is done
+  alert(
+    "Warning, this project is still in development, there can be bugs and broken components!"
+  );
 };

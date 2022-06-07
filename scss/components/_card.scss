@@ -8,12 +8,21 @@
   .card {
     border: 1px solid white;
     width: 14%;
-    h3 {
-      color: lightcoral;
-    }
+
     ul {
       overflow: auto;
       list-style: none;
+      display: flex;
+      justify-content: space-between;
+      flex-direction: column;
+
+      input {
+        margin-right: 5px;
+        background-color: lightcoral;
+      }
     }
+  }
+  h3 {
+    color: lightcoral;
   }
 }
