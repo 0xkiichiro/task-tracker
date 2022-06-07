@@ -1,6 +1,7 @@
 //! declare variables
 const input = document.querySelector(".input");
 const day = document.querySelector(".select");
+
 const monday = document.querySelector(".monday");
 const tuesday = document.querySelector(".tuesday");
 const wednesday = document.querySelector(".wednesday");
@@ -9,12 +10,17 @@ const friday = document.querySelector(".friday");
 const saturday = document.querySelector(".saturday");
 const sunday = document.querySelector(".sunday");
 
+const checkboxes = document.querySelectorAll("#checkbox");
+const pointCounter = document.querySelector(".point-counter");
+
 //! capture click
 
-document.querySelector(".container").addEventListener("click", (event) => {
-  if (event.target.classList.contains("button")) {
+document.querySelector("body").addEventListener("click", (event) => {
+  if (event.target.classList.contains("add")) {
     check();
-  }
+  } else if (event.target.classList.contains("pass")) {
+    controlCheckboxes();
+  } else if (event.target.classList.contains("fail")) controlCheckboxes();
 });
 
 //! capture keydown
@@ -30,6 +36,7 @@ document
 //! functions
 
 const check = function () {
+  const gun = document.querySelector(".select");
   if (day.value === "Pick a day") {
     alert("Pick a day first!");
   } else if (!input.value) {
@@ -53,7 +60,16 @@ const check = function () {
 };
 
 const printTask = function (dayName) {
-  dayName.lastElementChild.innerHTML += `<li> ${input.value} <input type="checkbox" name="delete" id="delete" /></li>`;
+  dayName.lastElementChild.innerHTML += `<li> ${input.value} <input type="checkbox" name="checkbox" id="checkbox" /></li>`;
+};
+
+const controlCheckboxes = function () {
+  Array.from(checkboxes).forEach((i) => {
+    if (i.checked) {
+      console.log(i.parentElement);
+      i.parentElement.remove();
+    }
+  });
 };
 
 //! onload
@@ -61,7 +77,7 @@ const printTask = function (dayName) {
 window.onload = function () {
   input.focus();
   //* comment out after WIP is done
-  alert(
-    "Warning, this project is still in development, there can be bugs and broken components!"
-  );
+  // alert(
+  //   "Warning, this project is still in development, there can be bugs and broken components!"
+  // );
 };
