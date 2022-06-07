@@ -10,8 +10,7 @@ const friday = document.querySelector(".friday");
 const saturday = document.querySelector(".saturday");
 const sunday = document.querySelector(".sunday");
 
-const checkboxes = document.querySelectorAll("#checkbox");
-const pointCounter = document.querySelector(".point-counter");
+const pointCounter = document.querySelector(".point-counter").lastElementChild;
 
 //! capture click
 
@@ -20,7 +19,9 @@ document.querySelector("body").addEventListener("click", (event) => {
     check();
   } else if (event.target.classList.contains("pass")) {
     controlCheckboxes();
-  } else if (event.target.classList.contains("fail")) controlCheckboxes();
+  } else if (event.target.classList.contains("fail")) {
+    controlCheckboxes();
+  }
 });
 
 //! capture keydown
@@ -64,6 +65,7 @@ const printTask = function (dayName) {
 };
 
 const controlCheckboxes = function () {
+  const checkboxes = document.querySelectorAll("#checkbox");
   Array.from(checkboxes).forEach((i) => {
     if (i.checked) {
       console.log(i.parentElement);
