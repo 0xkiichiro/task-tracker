@@ -1,4 +1,5 @@
 //! declare variables
+
 const input = document.querySelector(".input");
 const day = document.querySelector(".select");
 
@@ -10,7 +11,8 @@ const friday = document.querySelector(".friday");
 const saturday = document.querySelector(".saturday");
 const sunday = document.querySelector(".sunday");
 
-const pointCounter = document.querySelector(".point-counter").lastElementChild;
+const pointPouch = document.querySelector(".point-counter").lastElementChild;
+let pointCounter = 0;
 
 //! capture click
 
@@ -19,8 +21,12 @@ document.querySelector("body").addEventListener("click", (event) => {
     check();
   } else if (event.target.classList.contains("pass")) {
     controlCheckboxes();
+    pointPouch.innerText = Number(pointPouch.innerText) + pointCounter;
+    pointCounter = 0;
   } else if (event.target.classList.contains("fail")) {
     controlCheckboxes();
+    pointPouch.innerText = Number(pointPouch.innerText) - pointCounter;
+    pointCounter = 0;
   }
 });
 
@@ -68,7 +74,7 @@ const controlCheckboxes = function () {
   const checkboxes = document.querySelectorAll("#checkbox");
   Array.from(checkboxes).forEach((i) => {
     if (i.checked) {
-      console.log(i.parentElement);
+      pointCounter += 10;
       i.parentElement.remove();
     }
   });
@@ -78,7 +84,6 @@ const controlCheckboxes = function () {
 
 window.onload = function () {
   input.focus();
-  //* comment out after WIP is done
   // alert(
   //   "Warning, this project is still in development, there can be bugs and broken components!"
   // );
