@@ -13,6 +13,8 @@ const sunday = document.querySelector(".sunday");
 
 const pointPouch = document.querySelector(".point-counter").lastElementChild;
 let pointCounter = 0;
+//* short-circuit method: if localStorage is empty send an empty array
+let todoArr = JSON.parse(localStorage.getItem("todos")) || [];
 
 //! capture click
 
@@ -42,6 +44,28 @@ document
 
 //! functions
 
+const readAndRender = function () {
+  todoArr.forEach((i) => {
+    const { id, content, dayName } = i;
+    console.log(i);
+    if (dayName === "monday") {
+      printTask(monday, content, id);
+    } else if (dayName === "tuesday") {
+      printTask(tuesday, content, id);
+    } else if (dayName === "wednesday") {
+      printTask(wednesday, content, id);
+    } else if (dayName === "thursday") {
+      printTask(thursday, content, id);
+    } else if (dayName === "friday") {
+      printTask(friday, content, id);
+    } else if (dayName === "saturday") {
+      printTask(saturday, content, id);
+    } else if (dayName === "sunday") {
+      printTask(sunday, content, id);
+    }
+  });
+};
+
 const check = function () {
   const gun = document.querySelector(".select");
   if (day.value === "Pick a day") {
@@ -49,26 +73,46 @@ const check = function () {
   } else if (!input.value) {
     alert("Dont play with me, come back when you have a task at hand!");
   } else if (day.value === "monday") {
-    printTask(monday);
+    createTask();
+    printTask(monday, input.value, id);
   } else if (day.value === "tuesday") {
-    printTask(tuesday);
+    createTask();
+    printTask(tuesday, input.value, id);
   } else if (day.value === "wednesday") {
-    printTask(wednesday);
+    createTask();
+    printTask(wednesday, input.value, id);
   } else if (day.value === "thursday") {
-    printTask(thursday);
+    createTask();
+    printTask(thursday, input.value, id);
   } else if (day.value === "friday") {
-    printTask(friday);
+    createTask();
+    printTask(friday, input.value, id);
   } else if (day.value === "saturday") {
-    printTask(saturday);
+    createTask();
+    printTask(saturday, input.value, id);
   } else if (day.value === "sunday") {
-    printTask(sunday);
+    createTask();
+    printTask(sunday, input.value, id);
   }
   input.value = "";
 };
 
-const printTask = function (dayName) {
-  dayName.lastElementChild.innerHTML += `<li> ${input.value} <input type="checkbox" name="checkbox" id="checkbox" /></li>`;
-};
+function createTask() {
+  //* creating an obj for each task
+  const ArrObj = {
+    id: new Date().getTime(),
+    dayName: day.value,
+    content: input.value,
+  };
+  //* pushing this obj to the array
+  todoArr.push(ArrObj);
+  //* converting the array to JSON and send it to localStorage
+  localStorage.setItem("todos", JSON.stringify(todoArr));
+}
+
+function printTask(dayName, content, id) {
+  dayName.lastElementChild.innerHTML += `<li id="${id}"> ${content} <input type="checkbox" name="checkbox" id="checkbox" /></li>`;
+}
 
 const controlCheckboxes = function () {
   const checkboxes = document.querySelectorAll("#checkbox");
@@ -84,6 +128,7 @@ const controlCheckboxes = function () {
 
 window.onload = function () {
   input.focus();
+  readAndRender();
   // alert(
   //   "Warning, this project is still in development, there can be bugs and broken components!"
   // );
