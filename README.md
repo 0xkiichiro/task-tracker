@@ -2,7 +2,7 @@
 
 I was tasked to make a basic task tracker that allows you to add and remove tasks at your wish.
 
-I wanted to spice things up by allowing you to assignin a day of the week to your task and have some sort of weekly calendar.
+I wanted to spice things up by allowing you to assign a day of the week to your task and have some sort of weekly calendar.
 
 ---
 
