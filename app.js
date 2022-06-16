@@ -47,7 +47,6 @@ document
 const readAndRender = function () {
   todoArr.forEach((i) => {
     const { id, content, dayName } = i;
-    console.log(i);
     if (dayName === "monday") {
       printTask(monday, content, id);
     } else if (dayName === "tuesday") {
@@ -74,25 +73,25 @@ const check = function () {
     alert("Dont play with me, come back when you have a task at hand!");
   } else if (day.value === "monday") {
     createTask();
-    printTask(monday, input.value, id);
+    printTask(monday, input.value);
   } else if (day.value === "tuesday") {
     createTask();
-    printTask(tuesday, input.value, id);
+    printTask(tuesday, input.value);
   } else if (day.value === "wednesday") {
     createTask();
-    printTask(wednesday, input.value, id);
+    printTask(wednesday, input.value);
   } else if (day.value === "thursday") {
     createTask();
-    printTask(thursday, input.value, id);
+    printTask(thursday, input.value);
   } else if (day.value === "friday") {
     createTask();
-    printTask(friday, input.value, id);
+    printTask(friday, input.value);
   } else if (day.value === "saturday") {
     createTask();
-    printTask(saturday, input.value, id);
+    printTask(saturday, input.value);
   } else if (day.value === "sunday") {
     createTask();
-    printTask(sunday, input.value, id);
+    printTask(sunday, input.value);
   }
   input.value = "";
 };
@@ -118,7 +117,12 @@ const controlCheckboxes = function () {
   const checkboxes = document.querySelectorAll("#checkbox");
   Array.from(checkboxes).forEach((i) => {
     if (i.checked) {
+      console.log(i.parentElement.id);
       pointCounter += 10;
+      //* capturing the checked checkboxes and removing them from the array
+      todoArr = todoArr.filter((todo) => todo.id != i.parentElement.id);
+      //* sending the updated array to the localStorage
+      localStorage.setItem("todos", JSON.stringify(todoArr));
       i.parentElement.remove();
     }
   });
