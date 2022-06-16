@@ -12,9 +12,12 @@ All was going good until I decided to add the changes to the localStorage. I end
 
 ![alt-text](https://github.com/0xkiichiro/task-tracker/blob/master/Animation.gif)
 
-## Support
+## Comments
 
-For support, email fake@fake.com or join our Slack channel.
+All comments appreaciated. You can contact me:
+
+email: barisaytimur@gmail.com
+twitter: @0xkiichiro
 
 ## License
 
